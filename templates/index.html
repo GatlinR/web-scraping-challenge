@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mars Data</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container text-center">
+    <h1 class="jumbotron">Mission to Mars
+	<p><a class="btn btn-primary" href="/scrape" role="button">Scrape New Data</a></p>
+	</h1>
+ <div class="container">
+	    <div class="row">
+	      <h2 style="padding:1">Latest Mars News</h2>
+		  </div>
+		  <div class="row">
+		    <h5 class="text-left">{{mars.news_title}}</h5>
+		  </div>
+		  <div class="row">
+		   <h5 class="text-left">{{mars.news_p}}</h5>
+		  </div>
+	<br></br>
+  <div class="row">
+		<div class="col-lg-7 col-md-12">
+	      <h4 class="text-left">Featured Mars Image</h4>
+		    <img src={{mars.featured_img_url}} style="width:100%"   alt="Mars Images">
+		 </div>
+		 <div class="col-lg-5 col-md-12">
+		  <div class="jumbotron text-left" style = "padding-top:8px;padding-bottom: 5px">
+	      <h4  style = "padding-top:12px">Current Weather on Mars </h4>
+		    <p>{{mars.mars_weather}}</p>
+		  </div>
+		    <h4 class="text-left">Mars Facts</h4>
+        {{ mars.table_string }}
+		</div>
+	</div>
+</div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="contentbox">
+        <h3>Mars Hemispheres</h3>
+          <hr>
+				  <div class="container">
+          <div class="row">
+					  {% for x in mars.hemisphere_image_urls %}
+          <div class="col-lg-6 col-md-12 ">
+            <img style="width:100%" src= {{x.img_url}}</img>
+          </div>						  
+          {% endfor %}
+          </div>					  
+        </div>
+	    </div>
+    </div>
+  </div>
+</div>	
+</body>
+</html>
